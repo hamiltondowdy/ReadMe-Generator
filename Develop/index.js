@@ -32,7 +32,42 @@ const questions = [
         }
     },
 {
-
+    type: 'input',
+    name: 'repo',
+    message: 'enter repo name (required)',
+    validate: githubRepo => {
+        if (githubRepo) {
+            return true;
+        } else {
+            console.log('enter repo name')
+        }
+    }
+},
+{
+    type: 'input',
+    name: 'description',
+    message: 'enter repo description (required)',
+    validate: repoDescription => {
+        if(repoDescription) {
+            return true;
+        } else {
+            console.log('enter repo description');
+            return false;
+        }
+    }
+},
+{
+    type: 'input',
+    name: 'usage',
+    message: 'provide usage info (required)',
+    validatea: usageInput => {
+        if (usageInput) {
+            return true;
+        } else {
+            console.log('provide usage info');
+            return false;
+        }
+    }
 }
 
 ];
