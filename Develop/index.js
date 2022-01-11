@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
+// Array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -68,15 +68,68 @@ const questions = [
             return false;
         }
     }
-}
+},
+{
+    type: 'checkbox',
+    name: 'contents',
+    message: 'additional sections?',
+    choices: [
+        {
+            name: 'deployed application',
+            checked: false
+        },
+        {
+            name: 'installation',
+            checked: false
+        },
+        {
+            name: 'screenshots',
+            checked: false
+        },
+        {
+            name: 'built with',
+            checked: false
+        },
+        {
+            name: 'license',
+            checked: false
+        },
+        {
+            name: 'contributing',
+            checked: false
+        },
+        {
+            name: 'tests',
+            checked: false
+        },
+        {
+            name: 'questions',
+            checked: true
+        },
+        {
+            name: 'credits',
+            checked: true
+        },
+    ]
+},
+
 
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(`./dist/${fileName}`, data, err => {
+        if (err) {
+            throw err
+        };
+        console.log('readme created')
+    });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    return inquirer.prompt(questions);
+};
 
 // Function call to initialize app
 init();
