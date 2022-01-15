@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
@@ -251,7 +251,7 @@ const questions = [
 
 ];
 
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(`./dist/${fileName}`, data, err => {
         if (err) {
@@ -261,10 +261,31 @@ function writeToFile(fileName, data) {
     });
 };
 
-// TODO: Create a function to initialize app
+// Function to initialize app
 function init() {
     return inquirer.prompt(questions);
 };
 
 // Function call to initialize app
-init();
+init()
+.then(userResponse => { 
+    // Calls function to add screenshots based on user selection
+    if (userResponse.contents.indexOf('Screenshots') > -1) {
+        return addScreenshots(userResponse);
+    } else {
+        return userResponse;
+    }
+})
+.then(response => {
+    // Calls function to add credits based on user selection
+    if (response.contents.indexOf('Credits') > -1) {
+        return addCredits(response);
+    } else {
+        return response;
+    }
+})
+.then(answers => generateMarkdown(answers))
+.then(generatedReadme => writeToFile('README.md', generatedReadme))
+.catch(err => {
+    console.log(err);
+});
