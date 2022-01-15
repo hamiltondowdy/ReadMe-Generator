@@ -112,7 +112,46 @@ const questions = [
         },
     ]
 },
-
+{
+    type: 'input',
+    name: 'link',
+    message: 'provide link to deployed application',
+    when: ({ contents }) => {
+        if (contents.indexOf('deployed application') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    validate: linkInput => {
+        if (linkInput) {
+            return true;
+        } else {
+            console.log('please enter a link');
+            return false;
+        }
+    }
+},
+{
+    type: 'input',
+    name: 'installation',
+    message: 'Please list any required packages for installation of your application.',
+    when: ({ contents }) => {
+        if (contents.indexOf('Installation') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    validate: installInput => {
+        if (installInput) {
+            return true;
+        } else {
+            console.log('Please enter installation instructions!');
+            return false;
+        }
+    }
+},
 
 ];
 
