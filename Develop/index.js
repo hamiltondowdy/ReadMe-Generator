@@ -152,6 +152,102 @@ const questions = [
         }
     }
 },
+{
+    type: 'list',
+    name: 'license',
+    message: 'Please provide license information.',
+    choices: ['MIT', 'GNU', 'Apache 2.0', 'ISC'],
+    default: 0,
+    when: ({ contents }) => {
+        if (contents.indexOf('License') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    validate: licenseInput => {
+        if (licenseInput) {
+            return true;
+        } else {
+            console.log('Please provide license information!');
+            return false;
+        }
+    }
+}, 
+{
+    type: 'checkbox',
+    name: 'built with',
+    message: 'Please select the technologies that your application was built with.',
+    choices: ['HTML', 'CSS', 'SASS', 'JavaScript', 'Node.js', 'Express.js'],
+    default: 0,
+    when: ({ contents }) => {
+        if (contents.indexOf('Built With') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}, 
+{
+    type: 'input',
+    name: 'contributing',
+    message: 'Please enter your guidelines for contributing.',
+    when: ({ contents }) => {
+        if (contents.indexOf('Contributing') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    validate: contributingInput => {
+        if (contributingInput) {
+            return true;
+        } else {
+            console.log('Please enter guidelines for contributing!');
+            return false;
+        }
+    }
+},
+{
+    type: 'input',
+    name: 'tests',
+    message: 'Please enter test information for your application.',
+    when: ({ contents }) => {
+        if (contents.indexOf('Tests') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    validate: testsInput => {
+        if (testsInput) {
+            return true;
+        } else {
+            console.log('What packages are required to run tests for your application?');
+            return false;
+        }
+    }
+},
+{
+    type: 'input',
+    name: 'questions',
+    message: 'Please provide an email address for others to reach you with questions.',
+    when: ({ contents }) => {
+        if (contents.indexOf('Questions') > -1) {
+            return true;
+        } else { 
+            return false;
+        }
+    },
+    validate: questionsInput => {
+        if (questionsInput) {
+            return true;
+        } else {
+            console.log('Please provide an email address!');
+            return false;
+        }
+    }
+}
 
 ];
 
@@ -163,7 +259,7 @@ function writeToFile(fileName, data) {
         };
         console.log('readme created')
     });
-}
+};
 
 // TODO: Create a function to initialize app
 function init() {
