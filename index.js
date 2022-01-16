@@ -2,6 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const util = require('util');
 
 // Array of questions for user input
 const questions = [
@@ -177,7 +178,7 @@ const questions = [
 {
     type: 'checkbox',
     name: 'built with',
-    message: 'Please select the technologies that your application was built with.',
+    message: 'select the languages that your application was built with',
     choices: ['HTML', 'CSS', 'SASS', 'JavaScript', 'Node.js', 'Express.js'],
     default: 0,
     when: ({ contents }) => {
