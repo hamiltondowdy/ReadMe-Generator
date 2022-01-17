@@ -18,7 +18,7 @@ const questions = () => {
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please enter your GitHub username!');
+                console.log('Enter your GitHub username');
                 return false; 
             }
         } 
@@ -31,7 +31,7 @@ const questions = () => {
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please enter your email address!');
+                console.log('Enter your email address');
                 return false; 
             }
         }
@@ -73,7 +73,7 @@ const questions = () => {
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please choose a license!');
+                console.log('please choose a license');
                 return false; 
             }
         }
@@ -86,7 +86,7 @@ const questions = () => {
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please enter steps required to install your project!');
+                console.log('Enter steps required to install your project');
                 return false; 
             }
         }
@@ -99,7 +99,7 @@ const questions = () => {
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please enter a usage description!');
+                console.log('Enter a usage description');
                 return false; 
             }
         }
@@ -127,7 +127,7 @@ const writeFile = data => {
             return;
         // when the README has been created 
         } else {
-            console.log("Your README has been successfully created!")
+            console.log("README has been successfully created")
         }
     })
 }; 
@@ -142,7 +142,7 @@ questions()
 .then(data => {
     return writeFile(data);
 })
-// catching errors 
+// catch errors 
 .catch(err => {
     console.log(err)
 })

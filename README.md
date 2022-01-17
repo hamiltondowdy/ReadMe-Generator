@@ -1,8 +1,8 @@
-# project 1
-  ![Github licence](http://img.shields.io/badge/license-MIT-blue.svg)
+# ReadMe-Generator
+  ![Github license](http://img.shields.io/badge/license-MIT-blue.svg)
   
   ## Description 
-  its a project
+  This application was made in order to quickly generate a professional readme.md file for future projects.
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
@@ -12,14 +12,14 @@
   * [Questions](#questions)
   
   ## Installation 
-  1. install it
+  Clone from github
   ## Usage 
-  use it
+  Run in the command line using node.js
   ## License 
   This project is license under MIT
   ## Contributing 
-  contribute
+  Reach out!
   ## Tests
   npm test
   ## Questions
-  If you have any questions about this projects, please contact me directly at thehilldowdy@gmail.com. You can view more of my projects at https://github.com/hamiltondowdy.
+  If you have any questions about this projects, please contact me directly at hddowdy@ncsu.edu. You can view more of my projects at https://github.com/hamiltondowdy.
